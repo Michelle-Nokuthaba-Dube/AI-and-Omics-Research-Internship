@@ -1,0 +1,109 @@
+#-------------------------------------------------------------------------------
+### INTRODUCTION TO THE PRACTICAL MODULE ###
+## Class 1b: R Basic Operations ##
+#-------------------------------------------------------------------------------
+
+#Check working directory
+getwd()
+[1] "C:/Users/User/Desktop/Documents"
+
+#Set working directory
+setwd("C:/Users/User/Desktop/AI_Omics_Internship_2025")
+
+#Organize Project Module 1
+#File menu > New Project > New Directory > New Project > Module 1 
+
+#Create project directory sub folders using R code:
+dir.create("raw_data")
+dir.create("clean_data")
+dir.create("scripts")
+dir.create("results")
+dir.create("tasks")
+dir.create("plots")
+
+#Load "patient_info" dataset in R environment
+data <- read.csv(file.choose())
+
+#View data on spreadsheet
+View(data)
+
+#Check structure of dataset
+str(data)
+'data.frame':	20 obs. of  6 variables:
+$ patient_id: chr  "P001" "P002" "P003" "P004" ...
+$ age       : int  34 28 45 39 50 30 41 36 55 29 ...
+$ gender    : chr  "Male" "Female" "Female" "Male" ...
+$ diagnosis : chr  "Cancer" "Normal" "Cancer" "Normal" ...
+$ bmi       : num  22.5 20.3 26.7 23.8 27.1 21.9 25.4 24.2 28.6 19.8 ...
+$ smoker    : chr  "Yes" "No" "Yes" "No" ...
+
+#Identify variables with inconsistent data types
+Inconsistent data types: "gender", "diagnosis", "smoker"
+
+#Convert 'gender' column to factor
+data$gender_fac <- as.factor(data$gender)
+
+str(data)
+'data.frame':	20 obs. of  7 variables:
+$ patient_id: chr  "P001" "P002" "P003" "P004" ...
+$ age       : int  34 28 45 39 50 30 41 36 55 29 ...
+$ gender    : chr  "Male" "Female" "Female" "Male" ...
+$ diagnosis : chr  "Cancer" "Normal" "Cancer" "Normal" ...
+$ bmi       : num  22.5 20.3 26.7 23.8 27.1 21.9 25.4 24.2 28.6 19.8 ...
+$ smoker    : chr  "Yes" "No" "Yes" "No" ...
+$ gender_fac: Factor w/ 2 levels "Female","Male": 2 1 1 2 1 2 1 1 2 1 ...
+
+#Convert factor to numeric using ifelse statement (Female = 1, Male = 0)
+data$gender_num <- ifelse(data$gender_fac == "Female", 1, 0)
+class(data$gender_num)
+[1] "numeric"
+
+#Convert 'diagnosis' to factor
+data$diagnosis_fac <- as.factor(data$diagnosis)
+
+str(data)
+'data.frame':	20 obs. of  9 variables:
+$ patient_id   : chr  "P001" "P002" "P003" "P004" ...
+$ age          : int  34 28 45 39 50 30 41 36 55 29 ...
+$ gender       : chr  "Male" "Female" "Female" "Male" ...
+$ diagnosis    : chr  "Cancer" "Normal" "Cancer" "Normal" ...
+$ bmi          : num  22.5 20.3 26.7 23.8 27.1 21.9 25.4 24.2 28.6 19.8 ...
+$ smoker       : chr  "Yes" "No" "Yes" "No" ...
+$ gender_fac   : Factor w/ 2 levels "Female","Male": 2 1 1 2 1 2 1 1 2 1 ...
+$ gender_num   : num  0 1 1 0 1 0 1 1 0 1 ...
+$ diagnosis_fac: Factor w/ 2 levels "Cancer","Normal": 1 2 1 2 1 2 1 2 1 2 ...
+
+data$diagnosis_fac <- factor(data$diagnosis_fac, levels = c("Normal", "Cancer"))
+
+#Convert 'smoker' column to factor
+data$smoker_fac <- as.factor(data$smoker)
+
+#Convert factor to numeric using ifelse statement (Yes = 1, No = 0)
+data$smoker_num <- ifelse(data$smoker_fac == "Yes", 1, 0)
+class(data$smoker_num)
+[1] "numeric"
+
+#Convert numeric smoker code to factor 
+data$smoker_num <- as.factor(data$smoker_num)
+
+str(data)
+'data.frame':	20 obs. of  11 variables:
+$ patient_id   : chr  "P001" "P002" "P003" "P004" ...
+$ age          : int  34 28 45 39 50 30 41 36 55 29 ...
+$ gender       : chr  "Male" "Female" "Female" "Male" ...
+$ diagnosis    : chr  "Cancer" "Normal" "Cancer" "Normal" ...
+$ bmi          : num  22.5 20.3 26.7 23.8 27.1 21.9 25.4 24.2 28.6 19.8 ...
+$ smoker       : chr  "Yes" "No" "Yes" "No" ...
+$ gender_fac   : Factor w/ 2 levels "Female","Male": 2 1 1 2 1 2 1 1 2 1 ...
+$ gender_num   : num  0 1 1 0 1 0 1 1 0 1 ...
+$ diagnosis_fac: Factor w/ 2 levels "Normal","Cancer": 2 1 2 1 2 1 2 1 2 1 ...
+$ smoker_fac   : Factor w/ 2 levels "No","Yes": 2 1 2 1 2 1 2 1 2 1 ...
+$ smoker_num   : Factor w/ 2 levels "0","1": 2 1 2 1 2 1 2 1 2 1 ...
+
+View(data)
+
+#Save the cleaned dataset in the clean_data folder
+write.csv(data, file = "clean_data/patient_info_clean.csv")
+
+#Save the R Script in the 'scripts' folder
+save.image(file = "scripts/class_1b")
