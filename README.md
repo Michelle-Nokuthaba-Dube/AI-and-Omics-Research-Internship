@@ -45,3 +45,24 @@ The focus was on automating classification of genes as Upregulated, Downregulate
 7. Stored results in an R list and exported processed CSV files.
 8. Generated summary counts for Upregulated, Downregulated, and Not Significant genes.
 9. Stored the work in class_II.R.
+
+# Module II – Class 3B
+Preprocessing and Normalization of Microarray Data in R
+
+# 📝 Overview
+This session focused on preprocessing and normalizing GEO microarray datasets to ensure high-quality data for downstream analysis. Emphasis was placed on reproducible workflows and exploratory data analysis (EDA).
+
+# ✅ Key Learning Outcomes
+
+1. Loaded and explored GEO ExpressionSet data (GSE3292).
+2. Performed quality control using boxplots and density plots.
+3. Applied filtering based on median gene expression to remove low-intensity genes.
+4. Conducted normalization using RMA (Robust Multi-array Average) to standardize expression levels.
+5. Visualized sample clustering using Principal Component Analysis (PCA).
+6. Exported filtered and normalized expression data for downstream analysis.
+7. Organized scripts, plots, and results into structured project directories.
+
+# Resources
+Script: class_3b.R
+Data: filtered_expression_data.csv
+Plots: Boxplots, density plots, PCA plots
