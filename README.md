@@ -63,8 +63,6 @@ This session focused on preprocessing and normalizing GEO microarray datasets to
 7. Organized scripts, plots, and results into structured project directories.
 
 # Resources
-Script: class_3b.R
-
-Data: filtered_expression_data.csv
-
-Plots: Boxplots, density plots, PCA plots
+- Script: class_3b.R
+- Data: filtered_expression_data.csv
+- Plots: Boxplots, density plots, PCA plots
