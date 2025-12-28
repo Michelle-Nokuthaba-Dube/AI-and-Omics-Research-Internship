@@ -44,7 +44,7 @@ The focus was on automating classification of genes as Upregulated, Downregulate
 6. Handled missing values (padj replaced with 1 if NA).
 7. Stored results in an R list and exported processed CSV files.
 8. Generated summary counts for Upregulated, Downregulated, and Not Significant genes.
-9. Stored the work in class_II.R.
+9. Stored the work in class_2.R.
 
 # Module II – Class 3B
 Preprocessing and Normalization of Microarray Data in R
