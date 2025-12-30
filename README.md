@@ -1,5 +1,5 @@
 # AI-and-Omics-Research-Internship-2025
-# Module 1 - Class 1b
+# Module I - Class 1b
 Introduction to R Programming and Data Preparation
 
 # 📝 Overview
@@ -66,3 +66,32 @@ This session focused on preprocessing and normalizing GEO microarray datasets to
 - Script: class_3b.R
 - Data: filtered_expression_data.csv
 - Plots: Boxplots, density plots, PCA plots
+
+
+# Module II – Class 3C
+Differential Gene Expression Analysis Using Limma
+
+# 📝 Overview
+This session focused on performing differential gene expression (DGE) analysis on a public GEO microarray dataset using the Limma package in R. The workflow emphasized probe‑to‑gene annotation, handling duplicate probes, and identifying biologically meaningful differences between breast cancer and normal breast tissue samples in a reproducible manner.
+
+# ✅ Key Learning Outcomes
+1. Downloaded and explored GEO microarray data (GSE42568) using the GEOquery package.
+2. Extracted expression matrices and sample metadata from an ExpressionSet object.
+3. Mapped probe IDs to gene symbols using the AnnotationDbi framework (hgu133plus2.db).
+4. Identified and handled multiple probes mapping to the same gene by averaging expression values with avereps.
+5. Constructed a design matrix and performed differential expression analysis using the Limma package.
+6. Applied statistical thresholds (adjusted p‑value < 0.05 and |logFC| > 1) to identify significant DEGs.
+7. Visualized results using a volcano plot and a heatmap of the top 25 DEGs.
+8. Exported complete, upregulated, and downregulated DEG results as CSV files.
+9. Organized scripts, plots, and results into structured project directories for reproducibility.
+
+# 📊 Dataset Information
+- GEO Accession ID: GSE42568
+- Organism: Homo sapiens
+- Platform: Affymetrix Human Genome U133 Plus 2.0 (GPL570)
+- Comparison: Cancer vs Normal breast tissue
+
+# 📌 Resources
+- Script: class_3c.R
+- Results: DEG CSV files (complete, upregulated, downregulated)
+- Plots_class_3c: Volcano plot and heatmap of top 25 DEGs
